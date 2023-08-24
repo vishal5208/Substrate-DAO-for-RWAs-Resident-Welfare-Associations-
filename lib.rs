@@ -95,5 +95,20 @@ mod rwa {
                 }
             }
         }
+
+        #[ink(message)]
+        pub fn get_owner(&self) -> AccountId {
+            self.owner
+        }
+
+        #[ink(message)]
+        pub fn get_proposal_counter(&self) -> u128 {
+            self.proposal_counter
+        }
+
+        #[ink(message)]
+        pub fn get_proposal(&self, proposal_id: u128) -> Option<Proposal> {
+            self.proposals.get(&proposal_id)
+        }
     }
 }
